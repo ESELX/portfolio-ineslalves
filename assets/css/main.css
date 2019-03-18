@@ -21,7 +21,7 @@ section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 95%;
 	font: inherit;
 	vertical-align: baseline;}
 
@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;}
 
 body {
-	line-height: 1;
+	line-height: 2;
 }
 
 ol, ul {
@@ -98,7 +98,7 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #a2a2a2;
+		color: #000000;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
