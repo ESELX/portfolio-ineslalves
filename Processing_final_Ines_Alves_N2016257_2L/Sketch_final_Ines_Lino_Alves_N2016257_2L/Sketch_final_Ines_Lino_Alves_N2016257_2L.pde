@@ -298,7 +298,7 @@ class Mover
     float m = noise (frameCount / (2*noiseScale));
     m = map (m, 0, 1, - 1.2, 1.2);
 
-    float maxDistance = m * dist (0, 0, width/2, height/2);
+    float maxDistance = m * dist (0, 0, width/10, height/3);
     float distance = dist (location.x, location.y, width/2, height/2);
 
     float angle = map (distance, 0, maxDistance, 0, TWO_PI);
@@ -377,11 +377,11 @@ class Mover
       location.x = -diameter /2;
     }
 
-    if (location.y < -diameter /2)
+    if (location.y < -diameter /1)
     {
-      location.y = height+diameter /2;
+      location.y = height+diameter /1;
     }
-    else if (location.y > height+diameter /2)
+    else if (location.y > height+diameter /1)
     {
       location.y = -diameter /2;
     }
@@ -389,7 +389,7 @@ class Mover
 
   void checkEdgesAndBounce ()
   {
-    float radius = ellipseSize / 2;
+    float radius = ellipseSize / 1;
 
     if (location.x < radius )
     {
@@ -429,9 +429,9 @@ void keyPressed ()
   if (key == ' ') transparentBG = !transparentBG;
   if (key == 'n')
   {
-    float noiseScale = random (5, 400);
-    float noiseStrength = random (0.5, 6);
-    float forceStrength = random (0.5, 4);
+    float noiseScale = random (2, 1);
+    float noiseStrength = random (2, 5);
+    float forceStrength = random (20, 2);
 
     for (int i = 0; i < bouncers.size(); i++)
     {
@@ -450,7 +450,7 @@ void mousePressed ()
     bewegungsModus++;
     if (bewegungsModus > 5)
     {
-      bewegungsModus = 0;
+      bewegungsModus = 5;
     }
   }
 }
