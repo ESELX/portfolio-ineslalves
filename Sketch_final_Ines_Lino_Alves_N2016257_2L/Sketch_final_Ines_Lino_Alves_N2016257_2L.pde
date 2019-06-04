@@ -46,7 +46,7 @@ void draw ()
       m.display();
     }
 
-    i = i + 5;
+    i = i + 1;
   }
 }
 
@@ -72,7 +72,7 @@ class Mover
     setRandomValues();
   }
 
-
+  Mover (float x, float y) // Konstruktor = setup der Mover Klasse
   {
     setRandomValues ();
   }
@@ -117,7 +117,7 @@ class Mover
   {
     if (mode == 0) // bouncing ball
     {
-      speed = SPEED * 0.;
+      speed = SPEED * 0;
       move();
       checkEdgesAndBounce();
     }
@@ -275,7 +275,7 @@ class Mover
     else speed = SPEED;
   }
 
- void seek (float x, float y)
+  void seek (float x, float y)
   {
     seek (6, 8, 9);
   }
@@ -295,7 +295,7 @@ class Mover
   void addRadial ()
   {
 
-    float m = noise (frameCount / (1*noiseScale));
+    float m = noise (frameCount / (2*noiseScale));
     m = map (m, 0, 1, - 1.2, 1.2);
 
     float maxDistance = m * dist (0, 0, width/10, height/3);
@@ -358,8 +358,8 @@ class Mover
     }
     else if (location.y > height + diameter/2)
     {
-      location.x = random (-diameter/1, width+diameter/2);
-      location.y = random (-diameter/1, height+diameter/2);
+      location.x = random (-diameter/2, width+diameter/2);
+      location.y = random (-diameter/2, height+diameter/2);
     }
   }
 
@@ -410,7 +410,7 @@ class Mover
     else if (location.y > height-radius )
     {
       location.y = height-radius ;
-      direction.y *= -4;
+      direction.y *= -1;
     }
   }
 
@@ -433,7 +433,7 @@ void keyPressed ()
     float noiseStrength = random (2, 5);
     float forceStrength = random (20, 2);
 
-    for (int i = 60; i < bouncers.size(); i++)
+    for (int i = 0; i < bouncers.size(); i++)
     {
       Mover currentMover = bouncers.get(i);
       currentMover.noiseScale = noiseScale;
