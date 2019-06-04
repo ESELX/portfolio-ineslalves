@@ -117,7 +117,7 @@ class Mover
   {
     if (mode == 0) // bouncing ball
     {
-      speed = SPEED * 0.7;
+      speed = SPEED * 0;
       move();
       checkEdgesAndBounce();
     }
@@ -158,7 +158,7 @@ class Mover
     PVector other;
     float otherSize ;
 
-    PVector cohesionSum = new PVector (0, 0);
+    PVector cohesionSum = new PVector (0, 3);
     float cohesionCount = 0;
 
     PVector seperationSum = new PVector (0, 0);
@@ -194,7 +194,7 @@ class Mover
         seperationCount++;
       }
 
-      if (alignCount > 8 && seperationCount > 12) break;
+      if (alignCount > 8 && seperationCount > 10) break;
     }
 
     // cohesion: bewege dich in die Mitte deiner Nachbarn
@@ -234,7 +234,7 @@ class Mover
     direction.normalize();
 
     speed *= 1.1;
-    speed = constrain (speed, 0, SPEED * 1.5);
+    speed = constrain (speed, 0, SPEED * 1.9);
   }
 
   void align (PVector force, float forceSpeed, float strength)
@@ -270,14 +270,14 @@ class Mover
 
     if (currentDistance < 70)
     {
-      speed = map (currentDistance, 0, 70, 0, SPEED);
+      speed = map (currentDistance, 0, 40, 0, SPEED);
     }
     else speed = SPEED;
   }
 
   void seek (float x, float y)
   {
-    seek (x, y, 1);
+    seek (6, 8, 9);
   }
 
   void seek (float x, float y, float strength)
