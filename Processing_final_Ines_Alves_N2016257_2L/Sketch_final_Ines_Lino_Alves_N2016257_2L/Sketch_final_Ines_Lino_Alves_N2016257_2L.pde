@@ -30,14 +30,14 @@ void draw ()
     noStroke();
     rect (0, 0, width, height);
   } 
-  else background (#57385c);
+  else background (#191835);
 
 
-  int i = 0;
+  int i = 70;
   while (i < bouncers.size () )
   {
     Mover m = bouncers.get(i);
-    if (bewegungsModus != 5) m.update (bewegungsModus);
+    if (bewegungsModus != 40) m.update (bewegungsModus);
     else
     {
       m.flock (bouncers);
@@ -82,16 +82,16 @@ class Mover
   void setRandomValues ()
   {
     location = new PVector (random (width), random (height));
-    ellipseSize = random (4, 15);
+    ellipseSize = random (10, 30);
 
     float angle = random (TWO_PI);
     direction = new PVector (cos (angle), sin (angle));
 
-    speed = random (4, 7);
+    speed = random (6, 12);
     SPEED = speed;
-    noiseScale = 80;
-    noiseStrength = 1;
-    forceStrength = random (0.1, 0.2);
+    noiseScale = 200;
+    noiseStrength = 40;
+    forceStrength = random (0.4, 0.2);
     
     setRandomColor();
   }
@@ -100,10 +100,10 @@ class Mover
   {
     int colorDice = (int) random (4);
 
-    if (colorDice == 0) c = #ffedbc;
-    else if (colorDice == 1) c = #A75265;
-    else if (colorDice == 2) c = #ec7263;
-    else c = #febe7e;
+    if (colorDice == 0) c = #efcf77;
+    else if (colorDice == 1) c = #6940c9;
+    else if (colorDice == 2) c = #ca75ff;
+    else c = #4acea2;
   }
 
   // GENEREL ------------------------------
